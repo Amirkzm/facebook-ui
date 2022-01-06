@@ -80,37 +80,57 @@ const IconsWrapper = (props) => {
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
+  //const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <AppBar>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Box sx={{ display: "flex" }}>
           <Typography
             variant="h6"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            Trial&nbsp;
+            Trial Facebook-UI
           </Typography>
-          <Typography variant="h6"> Facebook-UI</Typography>
+          <Typography
+            variant="h6"
+            sx={{ display: { xs: "block", sm: "none" } }}
+          >
+            {" "}
+            FB-UI
+          </Typography>
         </Box>
-        <Box>
-          <Search
-            show={showSearch}
+
+        <Search show={showSearch}>
+          <Box
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
-            <SearchIcon />
-
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
-            {/* <CloseIcon /> */}
-          </Search>
-        </Box>
+
+            <CloseIcon
+              onClick={() => {
+                setShowSearch(false);
+              }}
+              sx={{ display: !showSearch ? "none" : "flex" }}
+            />
+          </Box>
+        </Search>
 
         <Box
           sx={{
@@ -120,7 +140,12 @@ const Navbar = () => {
           }}
         >
           <IconsWrapper show={showSearch}>
-            <SearchIcon onClick={() => setShowSearch(true)} />
+            <SearchIcon
+              onClick={() => setShowSearch(true)}
+              sx={{
+                display: !showSearch ? { xs: "flex", sm: "none" } : "flex",
+              }}
+            />
             <Badge badgeContent={4} color="error" sx={{ mr: 2 }}>
               <MailOutlineIcon />
             </Badge>
