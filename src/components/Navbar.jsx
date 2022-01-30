@@ -84,7 +84,7 @@ const Navbar = () => {
   // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <AppBar>
+    <AppBar sx={{ position: "static" }}>
       <Toolbar
         sx={{
           display: "flex",
