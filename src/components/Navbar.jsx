@@ -80,7 +80,8 @@ const IconsWrapper = (props) => {
 
 const Navbar = () => {
   const [showSearch, setShowSearch] = useState(false);
-  //const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
+  // const theme = useTheme();
+  // const isSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <AppBar>
