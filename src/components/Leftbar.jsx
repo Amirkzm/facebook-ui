@@ -1,61 +1,113 @@
-import { Container } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import PersonIcon from "@mui/icons-material/Person";
-import ListIcon from "@mui/icons-material/List";
-import CameraIcon from "@mui/icons-material/Camera";
-import AppsIcon from "@mui/icons-material/Apps";
-import CollectionsIcon from "@mui/icons-material/Collections";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import SettingsIcon from "@mui/icons-material/Settings";
-import LogoutIcon from "@mui/icons-material/Logout";
-import { styled, alpha } from "@mui/material/styles";
-
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
+import {
+  Home,
+  Person,
+  List,
+  Camera,
+  Apps,
+  Collections,
+  Storefront,
+  Settings,
+  Logout,
+} from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 
 const ItemDiv = styled("Div")(({ theme }) => ({
   display: "flex",
-  marginTop: theme.spacing(2),
   alignItems: "center",
+  marginBottom: theme.spacing(4),
+  backgroundColor: theme.palette.primary,
+  [theme.breakpoints.up("sm")]: {
+    marginBottom: theme.spacing(3),
+    cursor: "pointer",
+  },
+}));
+
+const StyledTypo = styled(Typography)(({ theme }) => ({
+  fontWeight: 500,
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
+}));
+
+const StyledIcon = styled("Div")(({ theme }) => ({
+  marginRight: theme.spacing(1),
+  "& > *": {
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "18px",
+    },
+  },
 }));
 
 const Leftbar = () => {
   return (
-    <Container>
+    <Container
+      sx={(theme) => ({
+        border: "1px solid grey",
+        height: "100vh",
+        position: "sticky",
+        top: 0,
+        ml: 0,
+        [theme.breakpoints.down("sm")]: {
+          bgcolor: "primary.main",
+          height: "100vh",
+          color: "white",
+        },
+      })}
+    >
       <ItemDiv>
-        <HomeIcon />
-        <Typography>Home</Typography>
+        <StyledIcon>
+          <Home />
+        </StyledIcon>
+        <StyledTypo>Home</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <PersonIcon />
-        <Typography>Friends</Typography>
+        <StyledIcon>
+          <Person />
+        </StyledIcon>
+        <StyledTypo>Friends</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <ListIcon />
-        <Typography>Lists</Typography>
+        <StyledIcon>
+          <List />
+        </StyledIcon>
+        <StyledTypo>Lists</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <CameraIcon />
-        <Typography>Camera</Typography>
+        <StyledIcon>
+          <Camera />
+        </StyledIcon>
+        <StyledTypo>Camera</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <AppsIcon />
-        <Typography>Apps</Typography>
+        <StyledIcon>
+          <Apps />
+        </StyledIcon>
+        <StyledTypo>Apps</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <CollectionsIcon />
-        <Typography>Collections</Typography>
+        <StyledIcon>
+          <Collections />
+        </StyledIcon>
+        <StyledTypo>Collections</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <StorefrontIcon />
-        <Typography>Market places</Typography>
+        <StyledIcon>
+          <Storefront />
+        </StyledIcon>
+        <StyledTypo>Market places</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <SettingsIcon />
-        <Typography>Settings</Typography>
+        <StyledIcon>
+          <Settings />
+        </StyledIcon>
+        <StyledTypo>Settings</StyledTypo>
       </ItemDiv>
       <ItemDiv>
-        <LogoutIcon />
-        <Typography>Logout</Typography>
+        <StyledIcon>
+          <Logout />
+        </StyledIcon>
+        <StyledTypo>Logout</StyledTypo>
       </ItemDiv>
     </Container>
   );

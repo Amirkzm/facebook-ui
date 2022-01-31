@@ -1,5 +1,14 @@
+import Posts from "./Posts";
+
 const Feed = () => {
-  return <div>Feed</div>;
+  return (
+    <>
+      <Posts />
+      <Posts />
+      <Posts />
+      <Posts />
+    </>
+  );
 };
 
 export default Feed;
