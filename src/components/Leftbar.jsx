@@ -12,7 +12,7 @@ import {
 } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 
-const ItemDiv = styled("Div")(({ theme }) => ({
+const ItemDiv = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   marginBottom: theme.spacing(4),
@@ -30,7 +30,7 @@ const StyledTypo = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const StyledIcon = styled("Div")(({ theme }) => ({
+const StyledIcon = styled("div")(({ theme }) => ({
   marginRight: theme.spacing(1),
   "& > *": {
     [theme.breakpoints.up("sm")]: {

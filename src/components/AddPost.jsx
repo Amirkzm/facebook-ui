@@ -36,8 +36,8 @@ const style = (theme) => ({
 
 const tooltipStyle = (theme) => ({
   position: "fixed",
-  bottom: 40,
-  right: 40,
+  bottom: 30,
+  right: 30,
   bgcolor: "primary.main",
   "&>*": {
     fontSize: 36,
