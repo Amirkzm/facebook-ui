@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Leftbar from "./components/Leftbar";
 import Rightbar from "./components/Rightbar";
 import Feed from "./components/Feed";
+import Addpost from "./components/AddPost";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Rightbar />
         </Grid>
       </Grid>
+      <Addpost />
     </div>
   );
 }
