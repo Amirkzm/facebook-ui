@@ -6,12 +6,14 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {
+  Alert,
   Button,
   FormControlLabel,
   FormLabel,
   MenuItem,
   Radio,
   RadioGroup,
+  Snackbar,
   TextField,
 } from "@mui/material";
 
@@ -51,6 +53,7 @@ const tooltipStyle = (theme) => ({
 
 const AddPost = () => {
   const [open, setOpen] = useState(false);
+  const [postCreated, setPostCreated] = useState(false);
 
   return (
     <>
@@ -124,7 +127,12 @@ const AddPost = () => {
             </RadioGroup>
           </Box>
           <Box sx={{ width: "90%", ml: "5%", mt: 6 }}>
-            <Button color="primary" variant="outlined" sx={{ mr: 3 }}>
+            <Button
+              color="primary"
+              variant="outlined"
+              sx={{ mr: 3 }}
+              onClick={() => setPostCreated(true)}
+            >
               Create
             </Button>
             <Button
@@ -137,6 +145,23 @@ const AddPost = () => {
           </Box>
         </Box>
       </Modal>
+      <Snackbar
+        open={postCreated}
+        autoHideDuration={500}
+        onClose={() => {
+          setOpen(false);
+          setTimeout(() => setPostCreated(false), 3000);
+        }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      >
+        <Alert
+          onClose={() => setPostCreated(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </>
   );
 };
